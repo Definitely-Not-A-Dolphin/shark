@@ -1,0 +1,2 @@
+set thing 5;
+echo $thing;
