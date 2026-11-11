@@ -1,18 +1,20 @@
-source ./2Dlist.fish;
+source ./src/js_regex.fish;
+source ./src/table_utils.fish;
+source ./src/var_register.fish;
 
-set -l table a b c d e f;
-echo (getElement2DList 2 2 $table);
+echo
 
-# set -l contents (cat program.shark);
-# set -l lines (string split ";" $contents);
+# Create the variable register
+set -g var_register (mktemp);
+touch $var_register;
 
-# set -l shark_vars;
+set -l contents (cat program.shark);
+set -l lines (string split ";" $contents);
 
-# set shark_vars[1] 1 2;
-# set shark_vars[2] 3 4;
-# echo $shark_vars[1];
+for line in $lines
+    echo $line;
 
-# for line in $lines
-#     echo $line;
-#     fish -c $line;
-# end
+    set -l split (string match "let [a-zA-Z_]+ = *" $line);
+end
+
+rm $var_register;
