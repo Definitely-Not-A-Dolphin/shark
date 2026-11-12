@@ -1,5 +1,5 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
   outputs =
     { nixpkgs, ... }:
@@ -10,6 +10,7 @@
     {
       devShells.x86_64-linux.default = pkgs.mkShell {
         packages = with pkgs; [
+          deno
           fish
           fish-lsp
         ];

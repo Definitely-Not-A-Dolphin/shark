@@ -1,8 +1,8 @@
+#!/usr/bin/env fish
+
 source ./src/js_regex.fish;
 source ./src/table_utils.fish;
-source ./src/var_register.fish;
-
-echo
+source ./src/var_registering.fish;
 
 # Create the variable register
 set -g var_register (mktemp);
